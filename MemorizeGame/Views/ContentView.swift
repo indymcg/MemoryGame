@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var game = MemoryGame()
-    @State private var showAlert = false
     @State private var cardIsNotTappable = false
     
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
@@ -39,6 +38,10 @@ struct ContentView: View {
                     }
             .padding(.leading)
             .padding(.trailing)
+        
+            .alert(isPresented: $game.isGameOver) {
+                Alert(title: Text("You matched all the cards! \n 🎉🎉🎉"), message: Text("Play again?"), dismissButton: .default(Text("OK")))
+            }
     }
 }
 

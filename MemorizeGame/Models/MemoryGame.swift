@@ -61,7 +61,7 @@ struct MemoryGame {
         } else {
             lastTappedCard = currentCard
         }
-        print(savedMatchedCards)
+        endGame()
     }
     
     func changeMatchedCardVisibility() {
