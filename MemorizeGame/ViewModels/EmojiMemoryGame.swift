@@ -10,13 +10,9 @@ import SwiftUI
 
 
 class EmojiMemoryGame: ObservableObject {
-    @Published var memoryGame: MemoryGame
+    @Published var memoryGame = MemoryGame()
     
     func newGame() {
         memoryGame = MemoryGame()
-    }
-    
-    init(memoryGame: MemoryGame) {
-        self.memoryGame = memoryGame
     }
  }
