@@ -39,9 +39,12 @@ struct ContentView: View {
             .padding(.leading)
             .padding(.trailing)
         
-            .alert(isPresented: $game.isGameOver) {
-                Alert(title: Text("You matched all the cards! \n 🎉🎉🎉"), message: Text("Play again?"), dismissButton: .default(Text("OK")))
+            .alert("You matched all the cards! \n 🎉🎉🎉", isPresented: $game.isGameOver, actions: {
+                Button("OK") { game.newGame() }
+            }) {
+                Text("Play again?")
             }
+
     }
 }
 
