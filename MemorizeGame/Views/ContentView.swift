@@ -14,13 +14,13 @@ struct ContentView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
-    let portraitColumns = [GridItem(), GridItem(), GridItem(), GridItem()]
-    let landscapeColumns = [GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem()]
+    let portraitColumns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 4)
+    //let landscapeColumns = [GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem()]
 
     var body: some View {
-            ScrollView {
+        ScrollView(.vertical) {
                 HeaderView(game: $game)
-                    LazyVGrid(columns: horizontalSizeClass == .compact && verticalSizeClass == .regular ? portraitColumns : landscapeColumns) {
+                    LazyVGrid(columns: portraitColumns) {
                                 ForEach(game.cards) { card in
                                     Button {
                                         card.flip()
