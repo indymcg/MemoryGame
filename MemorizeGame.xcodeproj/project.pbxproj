@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		293CB2A828E2237500E105E0 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293CB2A728E2237500E105E0 /* GameTests.swift */; };
 		2940CDCC28BFEDB1007FA261 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940CDCB28BFEDB1007FA261 /* MemoryGame.swift */; };
 		2940CDCE28C030CC007FA261 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940CDCD28C030CC007FA261 /* HeaderView.swift */; };
 		2940CDD628C0321C007FA261 /* MemorizeGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940CDD528C0321C007FA261 /* MemorizeGameTests.swift */; };
@@ -21,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		293CB2A928E2237500E105E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2949E08628BE908000C253A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2949E08D28BE908000C253A7;
+			remoteInfo = MemorizeGame;
+		};
 		2940CDD728C0321C007FA261 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2949E08628BE908000C253A7 /* Project object */;
@@ -31,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		293CB2A528E2237500E105E0 /* GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		293CB2A728E2237500E105E0 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		2940CDCB28BFEDB1007FA261 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		2940CDCD28C030CC007FA261 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		2940CDD328C0321C007FA261 /* MemorizeGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemorizeGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +57,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		293CB2A228E2237500E105E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2940CDD028C0321C007FA261 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		293CB2A628E2237500E105E0 /* GameTests */ = {
+			isa = PBXGroup;
+			children = (
+				293CB2A728E2237500E105E0 /* GameTests.swift */,
+			);
+			path = GameTests;
+			sourceTree = "<group>";
+		};
 		2940CDD428C0321C007FA261 /* MemorizeGameTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +102,7 @@
 			children = (
 				2949E09028BE908000C253A7 /* MemorizeGame */,
 				2940CDD428C0321C007FA261 /* MemorizeGameTests */,
+				293CB2A628E2237500E105E0 /* GameTests */,
 				2949E08F28BE908000C253A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +112,7 @@
 			children = (
 				2949E08E28BE908000C253A7 /* MemorizeGame.app */,
 				2940CDD328C0321C007FA261 /* MemorizeGameTests.xctest */,
+				293CB2A528E2237500E105E0 /* GameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +169,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		293CB2A428E2237500E105E0 /* GameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 293CB2AD28E2237500E105E0 /* Build configuration list for PBXNativeTarget "GameTests" */;
+			buildPhases = (
+				293CB2A128E2237500E105E0 /* Sources */,
+				293CB2A228E2237500E105E0 /* Frameworks */,
+				293CB2A328E2237500E105E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				293CB2AA28E2237500E105E0 /* PBXTargetDependency */,
+			);
+			name = GameTests;
+			productName = GameTests;
+			productReference = 293CB2A528E2237500E105E0 /* GameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2940CDD228C0321C007FA261 /* MemorizeGameTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2940CDD928C0321C007FA261 /* Build configuration list for PBXNativeTarget "MemorizeGameTests" */;
@@ -184,9 +229,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					293CB2A428E2237500E105E0 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 2949E08D28BE908000C253A7;
+					};
 					2940CDD228C0321C007FA261 = {
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 2949E08D28BE908000C253A7;
@@ -211,11 +260,19 @@
 			targets = (
 				2949E08D28BE908000C253A7 /* MemorizeGame */,
 				2940CDD228C0321C007FA261 /* MemorizeGameTests */,
+				293CB2A428E2237500E105E0 /* GameTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		293CB2A328E2237500E105E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2940CDD128C0321C007FA261 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,6 +292,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		293CB2A128E2237500E105E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				293CB2A828E2237500E105E0 /* GameTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2940CDCF28C0321C007FA261 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,6 +326,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		293CB2AA28E2237500E105E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2949E08D28BE908000C253A7 /* MemorizeGame */;
+			targetProxy = 293CB2A928E2237500E105E0 /* PBXContainerItemProxy */;
+		};
 		2940CDD828C0321C007FA261 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2949E08D28BE908000C253A7 /* MemorizeGame */;
@@ -269,6 +339,50 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		293CB2AB28E2237500E105E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.indy.mcginnis.GameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemorizeGame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MemorizeGame";
+			};
+			name = Debug;
+		};
+		293CB2AC28E2237500E105E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.indy.mcginnis.GameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemorizeGame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MemorizeGame";
+			};
+			name = Release;
+		};
 		2940CDDA28C0321C007FA261 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -476,6 +590,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		293CB2AD28E2237500E105E0 /* Build configuration list for PBXNativeTarget "GameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				293CB2AB28E2237500E105E0 /* Debug */,
+				293CB2AC28E2237500E105E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2940CDD928C0321C007FA261 /* Build configuration list for PBXNativeTarget "MemorizeGameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

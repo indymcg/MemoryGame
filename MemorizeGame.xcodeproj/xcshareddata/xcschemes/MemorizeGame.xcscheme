@@ -29,19 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2940CDD228C0321C007FA261"
-               BuildableName = "MemorizeGameTests.xctest"
-               BlueprintName = "MemorizeGameTests"
+               BlueprintIdentifier = "293CB2A428E2237500E105E0"
+               BuildableName = "GameTests.xctest"
+               BlueprintName = "GameTests"
                ReferencedContainer = "container:MemorizeGame.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "MemorizeGameTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

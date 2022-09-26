@@ -19,7 +19,7 @@ struct ContentView: View {
     var body: some View {
         ScrollView(.vertical) {
                 HeaderView(game: $game)
-                    LazyVGrid(columns: portraitColumns) {
+            LazyVGrid(columns: portraitColumns, spacing: 15) {
                                 ForEach(game.cards) { card in
                                     if card.isFaceUp {
                                         CardFront(emoji: card.emoji, color: card.color, opacity: card.cardOpacity)
@@ -29,12 +29,13 @@ struct ContentView: View {
                                                 card.flip()
                                                 game.saveTappedCards(card:  card)
                                             }
+                                        }
                                     }
-                                }
                                 .aspectRatio(2/3, contentMode: .fit)
-                        
                             }
-                        }
+                        .padding(.leading)
+                        .padding(.trailing)
+                    }
                     
         
             .alert("You matched all the cards! \n 🎉🎉🎉", isPresented: $game.isGameOver, actions: {

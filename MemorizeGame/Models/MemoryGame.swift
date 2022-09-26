@@ -52,10 +52,8 @@ struct MemoryGame {
                 savedMatchedCards.append(secondCard)
                 changeMatchedCardVisibility()
             } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    firstCard.flip()
-                    secondCard.flip()
-                }
+                firstCard.flip()
+                secondCard.flip()
             }
             lastTappedCard = nil
         } else {
@@ -65,9 +63,7 @@ struct MemoryGame {
     }
     
     func changeMatchedCardVisibility() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            savedMatchedCards.map { $0.cardOpacity = 0 }
-        }
+        savedMatchedCards.map { $0.cardOpacity = 0 }
     }
     
     func checkForMatch(card1: inout Card, card2: inout Card) -> Bool {
