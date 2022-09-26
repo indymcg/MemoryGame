@@ -14,8 +14,7 @@ struct ContentView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
-    let portraitColumns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 4)
-    //let landscapeColumns = [GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem()]
+    let portraitColumns = Array(repeating: GridItem(.adaptive(minimum: 80, maximum: 100)), count: 4)
 
     var body: some View {
         ScrollView(.vertical) {
@@ -27,7 +26,7 @@ struct ContentView: View {
                                         game.saveTappedCards(card:  card)
                                     } label: {
                                        if card.isFaceUp {
-                                           CardFront(emoji: card.emoji, color: card.color, opacity: card.cardOpacity)
+                                            CardFront(emoji: card.emoji, color: card.color, opacity: card.cardOpacity)
                                        } else if !card.isFaceUp {
                                            CardBack(color: card.color, opacity: card.cardOpacity)
                                        }
@@ -36,8 +35,6 @@ struct ContentView: View {
                             .aspectRatio(2/3, contentMode: .fit)
                         }
                     }
-            .padding(.leading)
-            .padding(.trailing)
         
             .alert("You matched all the cards! \n 🎉🎉🎉", isPresented: $game.isGameOver, actions: {
                 Button("OK") { game.newGame() }

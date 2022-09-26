@@ -27,8 +27,7 @@ struct CardFront: View {
     let opacity: Double
     
     var body: some View {
-        HStack {
-            ZStack {
+        ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .strokeBorder(Color(color), lineWidth: 4)
                 .background(.white).cornerRadius(10)
@@ -36,7 +35,6 @@ struct CardFront: View {
                     .font(.system(size: 50))
             }
             .opacity(opacity)
-        }
     }
 }
 

@@ -7,9 +7,13 @@
 
 import Foundation
 
-class Card: Identifiable {
+class Card: Identifiable, Equatable {
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.emoji == rhs.emoji 
+    }
+    
     var id = UUID()
-    var isFaceUp = false
+    var isFaceUp = true
     var isMatched = false
     var color: String
     var emoji: String
