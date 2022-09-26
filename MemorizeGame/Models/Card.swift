@@ -13,7 +13,7 @@ class Card: Identifiable, Equatable {
     }
     
     var id = UUID()
-    var isFaceUp = true
+    var isFaceUp = false
     var isMatched = false
     var color: String
     var emoji: String

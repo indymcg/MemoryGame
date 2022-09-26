@@ -21,20 +21,21 @@ struct ContentView: View {
                 HeaderView(game: $game)
                     LazyVGrid(columns: portraitColumns) {
                                 ForEach(game.cards) { card in
-                                    Button {
-                                        card.flip()
-                                        game.saveTappedCards(card:  card)
-                                    } label: {
-                                       if card.isFaceUp {
-                                            CardFront(emoji: card.emoji, color: card.color, opacity: card.cardOpacity)
-                                       } else if !card.isFaceUp {
-                                           CardBack(color: card.color, opacity: card.cardOpacity)
-                                       }
+                                    if card.isFaceUp {
+                                        CardFront(emoji: card.emoji, color: card.color, opacity: card.cardOpacity)
+                                    } else if !card.isFaceUp {
+                                        CardBack(color: card.color, opacity: card.cardOpacity)
+                                            .onTapGesture {
+                                                card.flip()
+                                                game.saveTappedCards(card:  card)
+                                            }
+                                    }
                                 }
+                                .aspectRatio(2/3, contentMode: .fit)
+                        
                             }
-                            .aspectRatio(2/3, contentMode: .fit)
                         }
-                    }
+                    
         
             .alert("You matched all the cards! \n 🎉🎉🎉", isPresented: $game.isGameOver, actions: {
                 Button("OK") { game.newGame() }
