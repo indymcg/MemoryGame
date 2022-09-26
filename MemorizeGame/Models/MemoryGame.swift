@@ -17,7 +17,7 @@ struct MemoryGame {
     var currentCard: Card? = nil
     var cardsAreMatched: Bool = false
     var savedMatchedCards: [Card] = []
-    var isGameOver = false
+    var isGameOver = true
     
      mutating func changeChosenTheme() {
         if chosenTheme.name == "Under the Sea" {
@@ -45,6 +45,9 @@ struct MemoryGame {
             let firstCard = lastTappedCard!
             let secondCard = currentCard!
             
+            print(firstCard.emoji)
+            print(secondCard.emoji)
+            
             if cardsAreMatched {
                 firstCard.isMatched = true
                 secondCard.isMatched = true
@@ -52,8 +55,10 @@ struct MemoryGame {
                 savedMatchedCards.append(secondCard)
                 changeMatchedCardVisibility()
             } else {
-                firstCard.flip()
-                secondCard.flip()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    firstCard.flip()
+                    secondCard.flip()
+                }
             }
             lastTappedCard = nil
         } else {
@@ -63,7 +68,9 @@ struct MemoryGame {
     }
     
     func changeMatchedCardVisibility() {
-        savedMatchedCards.map { $0.cardOpacity = 0 }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            savedMatchedCards.map { $0.cardOpacity = 0 }
+        }
     }
     
     func checkForMatch(card1: inout Card, card2: inout Card) -> Bool {
