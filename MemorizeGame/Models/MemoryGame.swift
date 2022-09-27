@@ -17,7 +17,7 @@ struct MemoryGame {
     var currentCard: Card? = nil
     var cardsAreMatched: Bool = false
     var savedMatchedCards: [Card] = []
-    var score: Int = 100
+    var score: Int = 500
     var numOfTurns: Int = 0
     var isGameOver = false
     var alertMessage: String = "You matched all the cards!"
@@ -50,6 +50,7 @@ struct MemoryGame {
             
             //count turn
             numOfTurns += 1
+            updateScore()
             
             print(firstCard.emoji)
             print(secondCard.emoji)
@@ -87,14 +88,22 @@ struct MemoryGame {
         }
     }
     
-    //UPDATE SCORE INSIDE FUNCTION
+    mutating func updateScore() -> Int {
+        if numOfTurns > 15 {
+            score -= 5
+            print(score)
+        }
+        return score
+    }
+    
+    
     mutating func updateAlertMessage() -> String {
         if numOfTurns <= 15 {
             alertMessage = "Amazing! You scored " + String(score)
         } else if numOfTurns <= 29 {
             alertMessage = "Good job! You scored " + String(score)
         } else if numOfTurns > 30 {
-            alertMessage = "You scored " +  String(score) + " \n Try again for a better score."
+            alertMessage = "Try again for a better score."
         }
         return alertMessage
     }
