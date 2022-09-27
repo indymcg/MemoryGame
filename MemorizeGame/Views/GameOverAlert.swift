@@ -43,9 +43,9 @@ struct GameOverAlertText: View {
                 Text("Play Again")
                     .font(.subheadline)
                     .foregroundColor(.white)
-                    .padding(8)
+                    .padding(15)
             }
-            .frame(width: 105)
+            .frame(width: 150)
             .background(.blue)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .shadow(radius: 3)
