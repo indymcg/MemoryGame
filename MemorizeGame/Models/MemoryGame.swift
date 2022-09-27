@@ -48,6 +48,9 @@ struct MemoryGame {
             let firstCard = lastTappedCard!
             let secondCard = currentCard!
             
+            //count turn
+            numOfTurns += 1
+            
             print(firstCard.emoji)
             print(secondCard.emoji)
             
@@ -84,13 +87,14 @@ struct MemoryGame {
         }
     }
     
+    //UPDATE SCORE INSIDE FUNCTION
     mutating func updateAlertMessage() -> String {
-        if numOfTurns <= 20 {
-            alertMessage = "Amazing! You scored 100 points."
-        } else if numOfTurns <= 31 {
-            alertMessage = "Good job! You scored 80 points"
-        } else if numOfTurns > 31 {
-            alertMessage = "Try again for a better score."
+        if numOfTurns <= 15 {
+            alertMessage = "Amazing! You scored " + String(score)
+        } else if numOfTurns <= 29 {
+            alertMessage = "Good job! You scored " + String(score)
+        } else if numOfTurns > 30 {
+            alertMessage = "You scored " +  String(score) + " \n Try again for a better score."
         }
         return alertMessage
     }

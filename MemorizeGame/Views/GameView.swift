@@ -13,9 +13,9 @@ struct GameView: View {
 
     var body: some View {
         ZStack {
-            ScrollView(.vertical) {
+            VStack {
                 HeaderView(game: $game)
-                    .padding(.bottom, -5)
+                    .padding(.bottom, -10)
                 LazyVGrid(columns: portraitColumns, spacing: 15) {
                     ForEach(game.cards) { card in
                         if card.isFaceUp {
@@ -32,6 +32,8 @@ struct GameView: View {
                 }
                 .padding(.leading)
                 .padding(.trailing)
+                
+                FooterView(score: game.score, turns: game.numOfTurns)
             }
         }
         .background(Color("BackgroundColor"))
