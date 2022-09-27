@@ -17,7 +17,10 @@ struct MemoryGame {
     var currentCard: Card? = nil
     var cardsAreMatched: Bool = false
     var savedMatchedCards: [Card] = []
+    var score: Int = 100
+    var numOfTurns: Int = 0
     var isGameOver = false
+    var alertMessage: String = "You matched all the cards!"
     
      mutating func changeChosenTheme() {
         if chosenTheme.name == "Under the Sea" {
@@ -81,9 +84,20 @@ struct MemoryGame {
         }
     }
     
+    mutating func updateAlertMessage() -> String {
+        if numOfTurns <= 20 {
+            alertMessage = "Amazing! You scored 100 points."
+        } else if numOfTurns <= 31 {
+            alertMessage = "Good job! You scored 80 points"
+        } else if numOfTurns > 31 {
+            alertMessage = "Try again for a better score."
+        }
+        return alertMessage
+    }
+    
     mutating func endGame() {
         if savedMatchedCards.count == chosenTheme.emojis.count {
-            print("game over")
+            updateAlertMessage()
             isGameOver = true
         }
     }

@@ -32,7 +32,7 @@ struct GameOverAlertText: View {
                 .padding(3)
                 .shadow(radius: 2)
             
-            Text("You matched all the cards!")
+            Text(game.alertMessage)
                 .font(.title2)
                 .foregroundColor(.black)
                 .fontWeight(.semibold)
