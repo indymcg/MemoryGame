@@ -27,7 +27,7 @@ struct GameOverAlertText: View {
     
     var body: some View {
         VStack(spacing: 5) {
-            Text("🎉🎉🎉")
+            Text(game.score == 0 ? "😕😕😕" : "🎉🎉🎉")
                 .font(.title)
                 .kerning(4.0)
                 .shadow(radius: 2)
@@ -47,7 +47,7 @@ struct GameOverAlertText: View {
             Button {
                 game.changeChosenTheme()
             } label: {
-                Text("Play Again")
+                Text("New Game")
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .kerning(0.5)
