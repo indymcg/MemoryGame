@@ -17,10 +17,13 @@ struct MemoryGame {
     var currentCard: Card? = nil
     var cardsAreMatched: Bool = false
     var savedMatchedCards: [Card] = []
-    var score: Int = 300
+    var score: Int = 100
     var numOfTurns: Int = 0
     var isGameOver = false
-    var alertMessage: String = "You matched all the cards!"
+    var alertMessage: String = "Amazing!"
+    var alertScoreMessage: String {
+        "Your score: " + String(score)
+    }
     
      mutating func changeChosenTheme() {
         if chosenTheme.name == "Under the Sea" {
@@ -47,13 +50,9 @@ struct MemoryGame {
             //unwrap card optionals
             let firstCard = lastTappedCard!
             let secondCard = currentCard!
-            
-            //count turn
+
             numOfTurns += 1
             updateScore()
-            
-            print(firstCard.emoji)
-            print(secondCard.emoji)
             
             if cardsAreMatched {
                 firstCard.isMatched = true
@@ -88,28 +87,25 @@ struct MemoryGame {
         }
     }
     
-    mutating func updateScore() -> Int {
+    mutating func updateScore() {
         if numOfTurns > 15 {
             score -= 5
-            print(score)
         }
-        return score
     }
     
     
-    mutating func updateAlertMessage() -> String {
+    mutating func updateAlertMessage() {
         if numOfTurns <= 15 {
-            alertMessage = "Amazing! You scored " + String(score)
+            alertMessage = "Amazing!"
         } else if numOfTurns <= 29 {
-            alertMessage = "Good job! You scored " + String(score)
+            alertMessage = "Good job!"
         } else if numOfTurns > 30 {
-            alertMessage = "Try again for a better score."
+            alertMessage = "Try again"
         }
-        return alertMessage
     }
     
     mutating func endGame() {
-        if savedMatchedCards.count == chosenTheme.emojis.count {
+        if savedMatchedCards.count == chosenTheme.emojis.count || score == 0 {
             updateAlertMessage()
             isGameOver = true
         }
@@ -122,6 +118,7 @@ struct MemoryGame {
         cards = []
         savedMatchedCards = []
         numOfTurns = 0
+        score = 100
         for i in 0..<chosenTheme.emojis.count {
             let newCard = Card(emoji: chosenTheme.emojis[i], color: chosenTheme.color)
             newCard.isFaceUp = false

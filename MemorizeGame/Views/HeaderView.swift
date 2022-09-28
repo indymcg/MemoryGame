@@ -29,7 +29,8 @@ struct HeaderView: View {
             Text(game.chosenTheme.name)
                 .bold()
                 .foregroundColor(Color(game.chosenTheme.color))
-                .font(.title2)
+                .font(.title)
+                .kerning(0.5)
             
             Spacer()
            

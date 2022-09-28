@@ -36,8 +36,10 @@ struct GameBoardView: View {
                     } else if !card.isFaceUp {
                         CardBack(color: card.color, opacity: card.cardOpacity)
                             .onTapGesture {
-                                card.flip()
-                                game.saveTappedCards(card:  card)
+                                if !game.isGameOver {
+                                    card.flip()
+                                    game.saveTappedCards(card:  card)
+                                }
                             }
                         }
                     }

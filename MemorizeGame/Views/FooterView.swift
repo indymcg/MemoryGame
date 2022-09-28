@@ -17,9 +17,12 @@ struct FooterView: View {
                 Text("Score:")
                     .font(.title2)
                     .fontWeight(.bold)
+                    .kerning(1.0)
                 Text(String(score))
                     .font(.title2)
+                    .kerning(0.5)
             }
+            
             .padding(.leading, 20)
             
             Spacer()
@@ -27,8 +30,10 @@ struct FooterView: View {
                 Text("Turns: ")
                     .font(.title2)
                     .fontWeight(.bold)
+                    .kerning(1.0)
                 Text(String(turns))
                     .font(.title2)
+                    .kerning(0.5)
             }
             .padding(.trailing, 20)
         }
