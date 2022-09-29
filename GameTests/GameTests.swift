@@ -21,17 +21,20 @@ class GameTests: XCTestCase {
         game = nil
     }
     
-    func testPerfectScore() {
-        game.numOfTurns = 15
-        let score = game.updateScore()
-        XCTAssertEqual(score, 100)
+    func testEndGame() {
+        game.score = 0
+        game.endGame()
+        XCTAssertEqual(game.isGameOver, true)
+        XCTAssertEqual(game.alertMessage, "Try again")
     }
     
-    
-    func testGoodScoreEdgeCase() {
-        game.numOfTurns = 16
-        let score = game.updateScore()
-        XCTAssertEqual(score, 100)
+    func testScoring() {
+        game.numOfTurns = 30
+        game.score = 5
+        game.updateAlertMessage()
+        XCTAssertEqual(game.alertMessage, "Good job!")
+        XCTAssertEqual(game.isGameOver, false)
     }
+    
     
 }

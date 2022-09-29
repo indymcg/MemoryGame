@@ -52,7 +52,6 @@ struct MemoryGame {
             let secondCard = currentCard!
 
             numOfTurns += 1
-            updateScore()
             
             if cardsAreMatched {
                 firstCard.isMatched = true
@@ -60,7 +59,15 @@ struct MemoryGame {
                 savedMatchedCards.append(firstCard)
                 savedMatchedCards.append(secondCard)
                 changeMatchedCardVisibility()
+                score += 10
             } else {
+                if numOfTurns > 15 && score > 5 {
+                    score -= 10
+                } else if score <= 5 && numOfTurns > 15 {
+                    score = 0
+                } else if numOfTurns < 15 && score > 0 {
+                    score -= 5
+                }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     firstCard.flip()
                     secondCard.flip()
@@ -87,25 +94,21 @@ struct MemoryGame {
         }
     }
     
-    mutating func updateScore() {
-        if numOfTurns > 15 {
-            score -= 5
-        }
-    }
-    
-    
     mutating func updateAlertMessage() {
-        if numOfTurns <= 15 {
+        if score >= 100 {
             alertMessage = "Amazing!"
-        } else if numOfTurns <= 29 {
+        } else if score <= 60 && score > 0 {
             alertMessage = "Good job!"
-        } else if numOfTurns > 30 {
+        } else {
             alertMessage = "Try again"
         }
     }
     
     mutating func endGame() {
-        if savedMatchedCards.count == chosenTheme.emojis.count || score == 0 {
+        if savedMatchedCards.count == chosenTheme.emojis.count {
+            updateAlertMessage()
+            isGameOver = true
+        } else if score == 0  {
             updateAlertMessage()
             isGameOver = true
         }
