@@ -124,6 +124,7 @@ struct MemoryGame {
             newCard.isFaceUp = false
             cards.append(newCard)
         }
+        cards.shuffle()
     }
 
     init() {

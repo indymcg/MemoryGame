@@ -16,7 +16,7 @@ struct GameView: View {
                     HeaderView(game: $game)
                     GameBoardView(game: $game)
                     FooterView(score: game.score, turns: game.numOfTurns)
-                    Spacer()
+                    Spacer(minLength: 10)
                 }
             .background(Color("BackgroundColor"))
         }
@@ -43,7 +43,7 @@ struct GameBoardView: View {
                             }
                         }
                     }
-                .aspectRatio(0.7, contentMode: .fit)
+                .aspectRatio(0.8, contentMode: .fit)
             }
         }
     }
