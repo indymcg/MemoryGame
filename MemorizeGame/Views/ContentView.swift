@@ -14,6 +14,7 @@ struct ContentView: View {
         if game.isGameOver {
             ZStack {
                 GameView(game: $game)
+                    .blur(radius: 3)
                 GameOverAlert(game: $game)
             }
             

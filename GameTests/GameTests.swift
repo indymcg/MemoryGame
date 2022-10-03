@@ -22,19 +22,32 @@ class GameTests: XCTestCase {
     }
     
     func testEndGame() {
+        game.score = -5
+        game.endGame()
+        XCTAssertEqual(game.isGameOver, true)
+        
         game.score = 0
         game.endGame()
         XCTAssertEqual(game.isGameOver, true)
-        XCTAssertEqual(game.alertMessage, "Try again")
     }
     
-    func testScoring() {
-        game.numOfTurns = 30
-        game.score = 5
+    func testBadScoring() {
+        game.score = -5
+        game.updateAlertMessage()
+        XCTAssertEqual(game.alertMessage, "Try again")
+        XCTAssertEqual(game.alertMessageEmojis, "😕😕😕")
+    }
+    
+    func testGoodScoring() {
+        game.score = 80
         game.updateAlertMessage()
         XCTAssertEqual(game.alertMessage, "Good job!")
-        XCTAssertEqual(game.isGameOver, false)
+        XCTAssertEqual(game.alertMessageEmojis, "🎉🎉🎉")
     }
-    
-    
+    func testGreatScoring() {
+        game.score = 150
+        game.updateAlertMessage()
+        XCTAssertEqual(game.alertMessage, "Amazing!")
+        XCTAssertEqual(game.alertMessageEmojis, "🎉🎉🎉")
+    }
 }

@@ -27,7 +27,7 @@ struct GameOverAlertText: View {
     
     var body: some View {
         VStack(spacing: 5) {
-            Text(game.score == 0 ? "😕😕😕" : "🎉🎉🎉")
+            Text(game.alertMessageEmojis)
                 .font(.title)
                 .kerning(4.0)
                 .shadow(radius: 2)

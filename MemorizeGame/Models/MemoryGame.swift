@@ -21,6 +21,7 @@ struct MemoryGame {
     var numOfTurns: Int = 0
     var isGameOver = false
     var alertMessage: String = "Amazing!"
+    var alertMessageEmojis: String = "🎉🎉🎉"
     var alertScoreMessage: String {
         "Your score: " + String(score)
     }
@@ -61,12 +62,10 @@ struct MemoryGame {
                 changeMatchedCardVisibility()
                 score += 10
             } else {
-                if numOfTurns > 15 && score > 5 {
-                    score -= 10
-                } else if score <= 5 && numOfTurns > 15 {
-                    score = 0
-                } else if numOfTurns < 15 && score > 0 {
+                if numOfTurns < 15 {
                     score -= 5
+                } else {
+                    score -= 10
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     firstCard.flip()
@@ -81,7 +80,7 @@ struct MemoryGame {
     }
     
     func changeMatchedCardVisibility() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             savedMatchedCards.map { $0.cardOpacity = 0 }
         }
     }
@@ -97,10 +96,13 @@ struct MemoryGame {
     mutating func updateAlertMessage() {
         if score >= 100 {
             alertMessage = "Amazing!"
-        } else if score <= 60 && score > 0 {
+            alertMessageEmojis = "🎉🎉🎉"
+        } else if score < 100 && score > 0 {
             alertMessage = "Good job!"
-        } else {
+            alertMessageEmojis = "🎉🎉🎉"
+        } else if score <= 0 {
             alertMessage = "Try again"
+            alertMessageEmojis = "😕😕😕"
         }
     }
     
@@ -108,7 +110,7 @@ struct MemoryGame {
         if savedMatchedCards.count == chosenTheme.emojis.count {
             updateAlertMessage()
             isGameOver = true
-        } else if score == 0  {
+        } else if score <= 0  {
             updateAlertMessage()
             isGameOver = true
         }
