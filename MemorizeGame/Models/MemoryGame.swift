@@ -17,7 +17,7 @@ struct MemoryGame {
     var currentCard: Card? = nil
     var cardsAreMatched: Bool = false
     var savedMatchedCards: [Card] = []
-    var score: Int = 100
+    var score: Int = 250
     var numOfTurns: Int = 0
     var isGameOver = false
     var alertMessage: String = "Amazing!"
@@ -62,10 +62,12 @@ struct MemoryGame {
                 changeMatchedCardVisibility()
                 score += 10
             } else {
-                if numOfTurns < 15 {
-                    score -= 5
-                } else {
-                    score -= 10
+                if score > 0 {
+                    if numOfTurns < 15 {
+                        score -= 10
+                    } else if numOfTurns > 15 {
+                        score -= 5
+                    }
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     firstCard.flip()

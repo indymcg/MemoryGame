@@ -15,6 +15,8 @@ struct GameView: View {
                 VStack {
                     HeaderView(game: $game)
                     GameBoardView(game: $game)
+                        .padding(.leading)
+                        .padding(.trailing)
                     FooterView(score: game.score, turns: game.numOfTurns)
                     Spacer(minLength: 10)
                 }
